@@ -2,686 +2,715 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Cundulli | Developer</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-:root {
-  --bg: #f8f7f4;
-  --text: #20202a;
-  --muted: #666775;
-  --purple: #6941c6;
-  --purple-light: #eee8fc;
-  --line: #e5e2e0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.6;
-}
-
-h1, h2, h3, .logo {
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.container {
-  max-width: 1150px;
-  margin: auto;
-  padding: 0 25px;
-}
-
-/* MENÚ */
-
-nav {
-  background: #ffffffed;
-  border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 76px;
-}
-
-.logo {
-  font-size: 25px;
-  font-weight: 700;
-}
-
-.logo span { color: var(--purple); }
-
-.menu {
-  display: flex;
-  gap: 30px;
-}
-
-.menu a {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.menu a:hover { color: var(--purple); }
-
-/* PRESENTACIÓN */
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  align-items: center;
-  gap: 50px;
-  min-height: 650px;
-  padding-top: 70px;
-  padding-bottom: 90px;
-}
-
-.status {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 30px;
-  background: #e8f7ed;
-  color: #18834a;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-
-.hero h1 {
-  font-size: clamp(45px, 6vw, 78px);
-  line-height: 1.1;
-  letter-spacing: -3px;
-  margin-bottom: 22px;
-}
-
-.hero h1 span {
-  color: var(--purple);
-}
-
-.hero p {
-  font-size: 18px;
-  color: var(--muted);
-  max-width: 530px;
-  margin-bottom: 30px;
-}
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.btn {
-  padding: 14px 23px;
-  border-radius: 10px;
-  font-weight: 700;
-  display: inline-block;
-  transition: .25s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.primary {
-  background: var(--purple);
-  color: white;
-}
-
-.secondary {
-  border: 1px solid #d2ccd9;
-  background: white;
-}
-
-.hero-visual {
-  display: flex;
-  justify-content: center;
-}
-
-.profile-box {
-  width: 340px;
-  height: 370px;
-  background: linear-gradient(145deg, #ddd2fa, #bba6f1);
-  border-radius: 35px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 20px 20px 0 #eee8fc;
-}
-
-.initials {
-  width: 175px;
-  height: 175px;
-  border-radius: 50%;
-  background: white;
-  display: grid;
-  place-items: center;
-  color: var(--purple);
-  font-size: 64px;
-  font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
-  box-shadow: 0 15px 40px #6941c633;
-}
-
-.profile-box p {
-  margin: 25px 0 0;
-  color: #352354;
-  font-weight: 700;
-  font-size: 17px;
-}
-
-.floating {
-  position: absolute;
-  top: 25px;
-  right: -20px;
-  background: white;
-  padding: 12px 18px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px #0002;
-  font-weight: 700;
-}
-
-/* SECCIONES */
-
-section {
-  padding: 85px 0;
-}
-
-.section-label {
-  color: var(--purple);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-
-.section-title {
-  font-size: clamp(30px, 4vw, 44px);
-  letter-spacing: -1px;
-  margin-bottom: 18px;
-}
-
-.section-description {
-  color: var(--muted);
-  max-width: 650px;
-  margin-bottom: 35px;
-}
-
-.about {
-  background: white;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.info-card {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 30px;
-}
-
-.info-card h3 {
-  margin-bottom: 10px;
-  font-size: 22px;
-}
-
-.info-card p {
-  color: var(--muted);
-}
-
-/* TECNOLOGÍAS */
-
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
-}
-
-.skill {
-  background: white;
-  border: 1px solid var(--line);
-  padding: 15px 22px;
-  border-radius: 12px;
-  font-weight: 700;
-  transition: .2s;
-}
-
-.skill:hover {
-  background: var(--purple-light);
-  border-color: var(--purple);
-  transform: translateY(-4px);
-}
-
-/* PROYECTOS */
-
-.projects {
-  background: white;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-
-.project-card {
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  overflow: hidden;
-  background: white;
-  transition: .25s;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px #0000000d;
-}
-
-.project-art {
-  height: 190px;
-  background: linear-gradient(135deg, #d6c6fc, #eee8fc);
-  display: grid;
-  place-items: center;
-  font-size: 65px;
-}
-
-.project-art.blue {
-  background: linear-gradient(135deg, #c7e8ff, #e9f6ff);
-}
-
-.project-content {
-  padding: 27px;
-}
-
-.project-content h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.project-content p {
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-.project-content a {
-  color: var(--purple);
-  font-weight: 700;
-}
-
-/* ESTADÍSTICAS */
-
-.stats-box {
-  background: white;
-  border: 1px solid var(--line);
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-}
-
-.stats-box img {
-  max-width: 100%;
-  height: auto;
-  margin: 10px;
-}
-
-.stats-box a {
-  display: inline-block;
-  color: var(--purple);
-  font-weight: 700;
-  margin-top: 15px;
-}
-
-/* CONTACTO */
-
-.contact {
-  background: #241b38;
-  color: white;
-  text-align: center;
-}
-
-.contact h2 {
-  font-size: 42px;
-  margin-bottom: 15px;
-}
-
-.contact p {
-  color: #c9c2d5;
-  margin-bottom: 30px;
-}
-
-.contact .btn {
-  background: #a78bfa;
-  color: #241b38;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #1c152b;
-  color: #c9c2d5;
-  font-size: 14px;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    min-height: auto;
-  }
-
-  .hero p { margin-left: auto; margin-right: auto; }
-
-  .buttons { justify-content: center; }
-
-  .hero-visual { margin-top: 20px; }
-
-  .about-grid, .project-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .menu { gap: 12px; }
-  .menu a { font-size: 12px; }
-
-  .profile-box {
-    width: 280px;
-    height: 310px;
-  }
-
-  .hero h1 { letter-spacing: -1px; }
-}
-
-@media (max-width: 480px) {
-  .nav-inner {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 0;
-  }
-
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio personal de David Cundulli">
+  <title>David Cundulli | Desarrollador</title>
+
+  <style>
+    :root {
+      --fondo: #f8f7f4;
+      --texto: #20202a;
+      --gris: #666775;
+      --morado: #6941c6;
+      --morado-claro: #eee8fc;
+      --borde: #e5e2e0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* NAVEGACIÓN */
+
+    nav {
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--borde);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--morado);
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .menu a {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      color: var(--morado);
+    }
+
+    /* PRESENTACIÓN */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      align-items: center;
+      gap: 65px;
+      min-height: 620px;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .hero-text {
+      min-width: 0;
+    }
+
+    .status {
+      display: inline-block;
+      background: #e8f7ed;
+      color: #18834a;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: var(--morado);
+    }
+
+    .hero-text p {
+      color: var(--gris);
+      font-size: 17px;
+      max-width: 560px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 11px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--morado);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #d2ccd9;
+    }
+
+    /* FOTO DE PERFIL */
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .profile-box {
+      width: 340px;
+      max-width: 100%;
+      min-height: 370px;
+      background: linear-gradient(145deg, #ddd2fa, #bba6f1);
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 35px 20px;
+      position: relative;
+      box-shadow: 15px 15px 0 var(--morado-claro);
+    }
+
+    .foto-perfil {
+      width: 220px;
+      height: 220px;
+      max-width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 6px solid white;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+      display: block;
+    }
+
+    .profile-box p {
+      font-size: 16px;
+      font-weight: 700;
+      color: #352354;
+      text-align: center;
+    }
+
+    .floating {
+      position: absolute;
+      top: -18px;
+      right: -12px;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* SECCIONES */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-label {
+      color: var(--morado);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 43px);
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--gris);
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    /* SOBRE MÍ */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .info-card {
+      background: var(--fondo);
+      border: 1px solid var(--borde);
+      padding: 30px;
+      border-radius: 18px;
+    }
+
+    .info-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .info-card p {
+      color: var(--gris);
+    }
+
+    /* TECNOLOGÍAS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .skill {
+      background: white;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 15px 22px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .skill:hover {
+      background: var(--morado-claro);
+      border-color: var(--morado);
+      transform: translateY(-4px);
+    }
+
+    /* PROYECTOS */
+
+    .projects {
+      background: white;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .project-art {
+      height: 170px;
+      background: linear-gradient(135deg, #d6c6fc, #eee8fc);
+      display: grid;
+      place-items: center;
+      font-size: 65px;
+    }
+
+    .project-art.blue {
+      background: linear-gradient(135deg, #c7e8ff, #e9f6ff);
+    }
+
+    .project-content {
+      padding: 28px;
+    }
+
+    .project-content h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .project-content p {
+      color: var(--gris);
+      margin-bottom: 18px;
+    }
+
+    .project-content a {
+      color: var(--morado);
+      font-weight: 700;
+    }
+
+    /* ESTADÍSTICAS */
+
+    .stats-box {
+      background: white;
+      border: 1px solid var(--borde);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .stats-box img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    .stats-box a {
+      color: var(--morado);
+      font-weight: 700;
+    }
+
+    /* CONTACTO */
+
+    .contact {
+      background: #241b38;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: #c9c2d5;
+      margin-bottom: 30px;
+    }
+
+    .contact .btn {
+      background: #a78bfa;
+      color: #241b38;
+    }
+
+    footer {
+      background: #1c152b;
+      color: #c9c2d5;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+
+    /* ADAPTACIÓN PARA CELULARES */
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 55px;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .about-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .nav-inner {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+
+      .menu {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .profile-box {
+        width: 290px;
+        min-height: 330px;
+      }
+
+      .foto-perfil {
+        width: 190px;
+        height: 190px;
+      }
+
+      .floating {
+        right: 0;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAVEGACIÓN -->
+  <!-- MENÚ -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#inicio" class="logo">David<span>.</span></a>
 
-<nav>
-  <div class="container nav-inner">
-    <a href="#inicio" class="logo">David<span>.</span></a>
-
-    <div class="menu">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#habilidades">Habilidades</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#contacto">Contacto</a>
+      <div class="menu">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- PRESENTACIÓN -->
+  <!-- INICIO -->
+  <header id="inicio" class="container hero">
 
-<header id="inicio" class="container hero">
+    <div class="hero-text">
+      <div class="status">
+        ● Disponible para aprender y colaborar
+      </div>
 
-  <div>
-    <div class="status">● Disponible para aprender y colaborar</div>
+      <h1>
+        Hola, soy<br>
+        <span>David Cundulli.</span>
+      </h1>
 
-    <h1>
-      Hola, soy <br>
-      <span>David Cundulli.</span>
-    </h1>
+      <p>
+        Estudiante universitario y desarrollador de software
+        en formación. Me apasiona crear experiencias web,
+        explorar nuevas tecnologías y resolver problemas
+        mediante la programación.
+      </p>
 
-    <p>
-      Estudiante universitario y desarrollador de software
-      en formación. Me apasiona crear experiencias web,
-      explorar nuevas tecnologías y resolver problemas
-      mediante la programación.
-    </p>
+      <div class="buttons">
+        <a href="#proyectos" class="btn btn-primary">
+          Explorar proyectos ↗
+        </a>
 
-    <div class="buttons">
-      <a href="#proyectos" class="btn primary">
-        Explorar proyectos ↗
-      </a>
+        <a href="https://github.com/davids123456"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-secondary">
+          Mi GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- FOTO PEQUEÑA A LA DERECHA -->
+    <div class="hero-visual">
+      <div class="profile-box">
+
+        <div class="floating">💻 Developer</div>
+
+        <img
+          src="foto.jpg"
+          alt="Foto de David Cundulli"
+          class="foto-perfil">
+
+        <p>Construyendo mi futuro 🚀</p>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" class="about">
+    <div class="container">
+
+      <div class="section-label">01 / Quién soy</div>
+      <h2 class="section-title">Un poco sobre mí</h2>
+
+      <p class="section-description">
+        Soy David Cundulli, estudiante universitario
+        interesado en el desarrollo de software,
+        las bases de datos y las soluciones tecnológicas.
+      </p>
+
+      <div class="about-grid">
+
+        <div class="info-card">
+          <h3>🎓 Mi formación</h3>
+          <p>
+            Actualmente continúo mi preparación académica
+            y fortalezco mis conocimientos de programación,
+            desarrollo web y gestión de versiones.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>🎯 Mis objetivos</h3>
+          <p>
+            Seguir aprendiendo, construir proyectos reales,
+            trabajar en equipo y convertirme en un
+            desarrollador de software profesional.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <div class="container">
+
+      <div class="section-label">02 / Mis herramientas</div>
+      <h2 class="section-title">Tecnologías que manejo</h2>
+
+      <p class="section-description">
+        Herramientas y lenguajes que utilizo
+        durante mi formación como desarrollador.
+      </p>
+
+      <div class="skills">
+        <div class="skill">🌐 HTML5</div>
+        <div class="skill">🎨 CSS3</div>
+        <div class="skill">⚡ JavaScript</div>
+        <div class="skill">🗄️ SQL</div>
+        <div class="skill">🔧 Git</div>
+        <div class="skill">🐙 GitHub</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="projects">
+    <div class="container">
+
+      <div class="section-label">03 / Mi trabajo</div>
+      <h2 class="section-title">Proyectos destacados</h2>
+
+      <p class="section-description">
+        Proyectos personales y académicos que forman
+        parte de mi aprendizaje.
+      </p>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="project-art">🌐</div>
+
+          <div class="project-content">
+            <h3>Portafolio personal</h3>
+
+            <p>
+              Sitio web donde presento mi perfil,
+              tecnologías, proyectos y actividad
+              como desarrollador.
+            </p>
+
+            <a href="https://github.com/davids123456/portafolio"
+               target="_blank"
+               rel="noopener noreferrer">
+              Ver código en GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art blue">📚</div>
+
+          <div class="project-content">
+            <h3>Proyectos académicos</h3>
+
+            <p>
+              Trabajos universitarios realizados
+              para fortalecer mis conocimientos
+              de programación y software.
+            </p>
+
+            <a href="https://github.com/davids123456?tab=repositories"
+               target="_blank"
+               rel="noopener noreferrer">
+              Explorar repositorios ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTADÍSTICAS -->
+  <section id="estadisticas">
+    <div class="container">
+
+      <div class="section-label">04 / Mi actividad</div>
+      <h2 class="section-title">Estadísticas de GitHub</h2>
+
+      <p class="section-description">
+        Mi actividad de programación y los lenguajes
+        presentes en mis repositorios públicos.
+      </p>
+
+      <div class="stats-box">
+
+        <img
+          src="https://github-readme-stats.vercel.app/api?username=davids123456&amp;show_icons=true&amp;theme=default"
+          alt="Estadísticas de GitHub"
+          loading="lazy">
+
+        <img
+          src="https://github-readme-stats.vercel.app/api/top-langs/?username=davids123456&amp;layout=compact&amp;theme=default"
+          alt="Lenguajes utilizados"
+          loading="lazy">
+
+        <p>
+          <a href="https://github.com/davids123456"
+             target="_blank"
+             rel="noopener noreferrer">
+            Ver actividad en GitHub ↗
+          </a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact">
+    <div class="container">
+
+      <div class="section-label" style="color:#c4b5fd">
+        05 / Contacto
+      </div>
+
+      <h2>¿Construimos algo genial?</h2>
+
+      <p>
+        Estoy dispuesto a aprender, compartir
+        conocimientos y colaborar en nuevos proyectos.
+      </p>
 
       <a href="https://github.com/davids123456"
          target="_blank"
          rel="noopener noreferrer"
-         class="btn secondary">
-        Mi GitHub
+         class="btn">
+        Visitar mi GitHub ↗
       </a>
-    </div>
-  </div>
-
-  <div class="hero-visual">
-    <div class="profile-box">
-      <div class="floating">💻 Developer</div>
-      <img src="yo.jpeg" alt="Foto de David Cundulli" class="foto-perfil">
-      <p>Construyendo mi futuro 🚀</p>
-    </div>
-  </div>
-
-</header>
-
-<!-- SOBRE MÍ -->
-
-<section id="sobre-mi" class="about">
-  <div class="container">
-
-    <div class="section-label">01 / Quién soy</div>
-    <h2 class="section-title">Un poco sobre mí</h2>
-
-    <p class="section-description">
-      Soy David Cundulli, estudiante universitario interesado
-      en el desarrollo de software, las bases de datos
-      y las soluciones tecnológicas.
-    </p>
-
-    <div class="about-grid">
-
-      <div class="info-card">
-        <h3>🎓 Mi formación</h3>
-        <p>
-          Actualmente continúo mi preparación académica
-          y fortalezco mis conocimientos de programación,
-          desarrollo web y gestión de versiones.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <h3>🎯 Mis objetivos</h3>
-        <p>
-          Seguir aprendiendo, construir proyectos reales,
-          trabajar en equipo y convertirme en un
-          desarrollador de software profesional.
-        </p>
-      </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- HABILIDADES -->
-
-<section id="habilidades">
-  <div class="container">
-
-    <div class="section-label">02 / Mis herramientas</div>
-    <h2 class="section-title">Tecnologías que manejo</h2>
-
-    <p class="section-description">
-      Estas son algunas de las tecnologías y herramientas
-      que utilizo durante mi formación.
-    </p>
-
-    <div class="skills">
-      <div class="skill">🌐 HTML5</div>
-      <div class="skill">🎨 CSS3</div>
-      <div class="skill">⚡ JavaScript</div>
-      <div class="skill">🗄️ SQL</div>
-      <div class="skill">🔧 Git</div>
-      <div class="skill">🐙 GitHub</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROYECTOS -->
-
-<section id="proyectos" class="projects">
-  <div class="container">
-
-    <div class="section-label">03 / Mi trabajo</div>
-    <h2 class="section-title">Proyectos destacados</h2>
-
-    <p class="section-description">
-      Proyectos personales y académicos que forman
-      parte de mi aprendizaje como desarrollador.
-    </p>
-
-    <div class="project-grid">
-
-      <article class="project-card">
-        <div class="project-art">🌐</div>
-
-        <div class="project-content">
-          <h3>Portafolio personal</h3>
-          <p>
-            Sitio web donde presento mi perfil,
-            tecnologías, proyectos y actividad
-            como desarrollador.
-          </p>
-
-          <a href="https://github.com/davids123456/portafolio"
-             target="_blank"
-             rel="noopener noreferrer">
-            Ver código en GitHub ↗
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-art blue">📚</div>
-
-        <div class="project-content">
-          <h3>Proyectos académicos</h3>
-          <p>
-            Trabajos universitarios realizados
-            para fortalecer mis conocimientos
-            de programación y software.
-          </p>
-
-          <a href="https://github.com/davids123456?tab=repositories"
-             target="_blank"
-             rel="noopener noreferrer">
-            Explorar repositorios ↗
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ESTADÍSTICAS -->
-
-<section id="estadisticas">
-  <div class="container">
-
-    <div class="section-label">04 / Mi actividad</div>
-    <h2 class="section-title">Estadísticas de GitHub</h2>
-
-    <p class="section-description">
-      Mi actividad de programación y los lenguajes
-      presentes en mis repositorios públicos.
-    </p>
-
-    <div class="stats-box">
-
-      <img
-        src="https://github-readme-stats.vercel.app/api?username=davids123456&amp;show_icons=true&amp;theme=default"
-        alt="Estadísticas de GitHub de David"
-        loading="lazy">
-
-      <img
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=davids123456&amp;layout=compact&amp;theme=default"
-        alt="Lenguajes de programación"
-        loading="lazy">
-
-      <div>
-        <a href="https://github.com/davids123456"
-           target="_blank"
-           rel="noopener noreferrer">
-          Consultar mi actividad en GitHub ↗
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-
-<section id="contacto" class="contact">
-  <div class="container">
-
-    <div class="section-label" style="color:#c4b5fd">
-      05 / Contacto
-    </div>
-
-    <h2>¿Construimos algo genial?</h2>
-
-    <p>
-      Estoy siempre dispuesto a aprender,
-      compartir conocimientos y colaborar
-      en nuevos proyectos.
-    </p>
-
-    <a href="https://github.com/davids123456"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="btn">
-      Visitar mi GitHub ↗
-    </a>
-
-  </div>
-</section>
-
-<footer>
-  © 2026 David Cundulli · Diseñado con HTML y CSS
-</footer>
+  <footer>
+    © 2026 David Cundulli · Portafolio personal
+  </footer>
 
 </body>
 </html>
